@@ -10,9 +10,9 @@ export class CreateUserController {
       const createUser = container.resolve(CreateUserUseCase);
       const response = await createUser.execute(payload);
 
-      return res.status(200).send(response);
+      return res.status(201).send(response);
     } catch (error) {
-      throw error;
+      return res.status(400).send(error);
     }
   };
 }

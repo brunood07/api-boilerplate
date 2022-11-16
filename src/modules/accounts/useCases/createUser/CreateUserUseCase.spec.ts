@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 
-import { UsersRepositoryInMemory } from '@modules/accounts/repositories/in-memory/UsersRepositoryInMemory';
 import { CreateUserUseCase } from './CreateUserUseCase';
-import { AppError } from '@shared/errors/AppError';
+import { AppError } from '../../../../shared/errors/AppError';
+import { UsersRepositoryInMemory } from '../../repositories/in-memory/UsersRepositoryInMemory';
 
 let createUser: CreateUserUseCase;
 let usersRepository: UsersRepositoryInMemory;

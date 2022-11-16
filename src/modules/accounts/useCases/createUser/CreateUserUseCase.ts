@@ -1,9 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { CreateUserDTO } from '@modules/accounts/dtos/CreateUserDTO';
-import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { User } from '@prisma/client';
-import { AppError } from '@shared/errors/AppError';
+import { AppError } from '../../../../shared/errors/AppError';
+import { IUsersRepository } from '../../repositories/IUsersRepository';
+import { CreateUserDTO } from '../../dtos/CreateUserDTO';
 
 @injectable()
 export class CreateUserUseCase {
@@ -18,8 +18,9 @@ export class CreateUserUseCase {
       data.document
     );
 
-    if (emailExists || documentExists)
+    if (emailExists || documentExists) {
       throw new AppError('Client already exists');
+    }
 
     const userRegister = await this.usersRepository.create(data);
 

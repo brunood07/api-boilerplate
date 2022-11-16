@@ -1,10 +1,7 @@
-import { prisma } from '@config/database/db';
-import {
-  CreateUserDTO,
-  UserResponse
-} from '@modules/accounts/dtos/CreateUserDTO';
-import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { User } from '@prisma/client';
+import { prisma } from '../../../../../config/database/db';
+import { CreateUserDTO } from '../../../dtos/CreateUserDTO';
+import { IUsersRepository } from '../../../repositories/IUsersRepository';
 
 export class UsersRepository implements IUsersRepository {
   async create(data: CreateUserDTO): Promise<User> {
