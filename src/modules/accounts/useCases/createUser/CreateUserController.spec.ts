@@ -2,8 +2,19 @@ import 'reflect-metadata';
 import { app } from '../../../../shared/infra/http/app';
 
 import request from 'supertest';
+import { PrismaClient } from '@prisma/client';
+
+let prisma = new PrismaClient();
 
 describe('Create user controller', () => {
+  beforeAll(async () => {
+    await prisma.$connect();
+  });
+
+  afterAll(async () => {
+    await prisma.$disconnect();
+  });
+
   it('Should be able to create a new user', async () => {
     const response = await request(app).post('/users').send({
       firstName: 'Teste',
