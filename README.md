@@ -75,3 +75,9 @@
             |- app.ts
             |- server.ts
 ```
+
+## TODO
+
+- Make a better configuration for prisma with integration tests.
+- Add Plop to generate modules, routes and usecases.
+- Review and rewrite this readme.
